@@ -12,10 +12,6 @@
         :secondaryDomain="secondaryDomain"
       >
       </power-picker-new-character>
-      <button class="btn" @click="confirm">Finalize Draw</button>
-      <!-- Modal -->
-      <v-modal :showModal="showModal" @close-modal="closeModal">
-      </v-modal>
     </div>
     <power-card-lister v-else :powers="powers"></power-card-lister>
   </div>
@@ -25,14 +21,12 @@
 import { mapGetters } from 'vuex';
 import PowerPickerNewCharacter from '@/components/PowerPickerNewCharacter';
 import PowerCardLister from '@/components/PowerCardLister';
-import VModal from '@/components/VModal';
 
 export default {
   name: 'character-powers',
   components: {
     PowerCardLister,
     PowerPickerNewCharacter,
-    VModal,
   },
   data() {
     return {
@@ -45,14 +39,6 @@ export default {
       primaryDomain: 'getPrimaryDomain',
       secondaryDomain: 'getSecondaryDomain',
     }),
-  },
-  methods: {
-    confirm() {
-      console.log('OK!');
-    },
-    closeModal() {
-      this.showModal = false;
-    },
   },
 };
 </script>

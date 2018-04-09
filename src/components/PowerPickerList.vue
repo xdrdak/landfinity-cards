@@ -1,8 +1,8 @@
 <template>
   <ul class="list power-picker-list">
     <li class="power-picker-list__item" v-for="power in powers" :key="power.id">
-      <div class="power-picker-list__group">
-        <input 
+      <label :for="power.id">
+        <input
           class="power-picker-list__cb"
           type="checkbox"
           :id="power.id"
@@ -11,11 +11,11 @@
           @change="$emit('update:selectedPowers', selectedPowers)"
           :disabled="selectedPowers.length > 1 && selectedPowers.indexOf(power.id) < 0"
         >
-        {{power.power}}
-      </div>
-      <div>
-        <button class="btn">?</button>
-      </div>
+        {{power.power}} ({{power.type}})
+      </label>
+      <p class="power-picker-list__description">
+        {{power.description}}
+      </p>
     </li>
   </ul>
 </template>
@@ -43,16 +43,19 @@ export default {
   padding-bottom: 1rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
 }
 
-.power-picker-list__group {
+.power-picker-list__item label{
   display: flex;
-  align-items: center;
 }
 
 .power-picker-list__cb {
   width: 20px;
   height: 20px;
+}
+
+.power-picker-list__description {
+  margin: 0;
 }
 </style>

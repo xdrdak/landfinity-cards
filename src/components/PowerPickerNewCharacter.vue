@@ -1,15 +1,32 @@
 <template>
   <div class="power-picker-list-container">
+    <h4>Primary Green Powers</h4>
     <power-picker-list
       :powers="greenPrimaryPowers"
       :selectedPowers.sync="selectedGreenPrimary"
     >
     </power-picker-list>
+    <h4>Primary Red Powers</h4>
     <power-picker-list
       :powers="redPrimaryPowers"
       :selectedPowers.sync="selectedRedPrimary"
     >
     </power-picker-list>
+    <h4>Secondary Green Powers</h4>
+    <power-picker-list
+      :powers="greenSecondaryPowers"
+      :selectedPowers.sync="selectedGreenSecondary"
+    >
+    </power-picker-list>
+    <h4>Secondary Red Powers</h4>
+    <power-picker-list
+      :powers="redSecondaryPowers"
+      :selectedPowers.sync="selectedRedSecondary"
+    >
+    </power-picker-list>
+    <div>
+      <button class="btn" @click="addPowers">Finalize Pick</button>
+    </div>
   </div>
 </template>
 
@@ -50,6 +67,24 @@ export default {
       this.greenSecondaryPowers = sampleSize(secondaryPowers.filter(p => filterColor(p, 'green')), 3);
       this.redSecondaryPowers = sampleSize(secondaryPowers.filter(p => filterColor(p, 'red')), 3);
     },
+    addPowers() {
+      const powers = [
+        ...this.greenPrimaryPowers,
+        ...this.redPrimaryPowers,
+        ...this.greenSecondaryPowers,
+        ...this.redSecondaryPowers,
+      ];
+
+      const selectedPowers = [
+        ...this.selectedGreenPrimary,
+        ...this.selectedRedPrimary,
+        ...this.selectedGreenSecondary,
+        ...this.selectedRedSecondary,
+      ];
+
+      const nextPowers = powers.filter(p => selectedPowers.indexOf(p.id) >= 0);
+      console.log('add these:', nextPowers);
+    },
   },
   data() {
     return {
@@ -67,25 +102,4 @@ export default {
 </script>
 
 <style>
-  .power-picker-list-container {
-    width: 100%;
-  }
-
-  .power-picker-list__item {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .power-picker-list__group {
-    display: flex;
-    align-items: center;
-  }
-
-  .power-picker-list__cb {
-    width: 20px;
-    height: 20px;
-  }
 </style>
