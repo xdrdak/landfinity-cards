@@ -93,6 +93,20 @@ header span {
 }
 
 /*
+  Text manipulation
+*/
+.b {
+  font-weight: bold;
+}
+
+.i {
+  font-weight: lighter;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+/*
   Containers and Grids
 */
 .container {

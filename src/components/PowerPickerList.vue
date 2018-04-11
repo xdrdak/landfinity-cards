@@ -14,7 +14,7 @@
           @change="$emit('update:selectedPowers', selectedPowers)"
           :disabled="isDisabled(power.id)"
         >
-        {{power.power}} ({{power.type}})
+        <span class="capitalize">{{power.power.toLowerCase()}}</span>&nbsp;({{power.type}})
       </label>
       <p
         class="power-picker-list__description"
@@ -49,6 +49,10 @@ export default {
 </script>
 
 <style>
+.power-picker-list {
+  border-left: 5px solid var(--dark-blue);
+  padding-left: 5px;
+}
 .power-picker-list__item {
   padding-top: 1rem;
   padding-bottom: 1rem;

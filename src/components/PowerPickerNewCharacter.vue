@@ -1,34 +1,44 @@
 <template>
-  <div class="power-picker-list-container">
-    <h4>Primary Green Powers</h4>
-    <power-picker-list
-      :powers="greenPrimaryPowers"
-      :selectedPowers.sync="selectedGreenPrimary"
-    >
-    </power-picker-list>
-    <h4>Primary Red Powers</h4>
-    <power-picker-list
-      :powers="redPrimaryPowers"
-      :selectedPowers.sync="selectedRedPrimary"
-    >
-    </power-picker-list>
-    <h4>Secondary Green Powers</h4>
-    <power-picker-list
-      :powers="greenSecondaryPowers"
-      :selectedPowers.sync="selectedGreenSecondary"
-    >
-    </power-picker-list>
-    <h4>Secondary Red Powers</h4>
-    <power-picker-list
-      :powers="redSecondaryPowers"
-      :selectedPowers.sync="selectedRedSecondary"
-    >
-    </power-picker-list>
-    <div>
+  <div class="power-picker-new-character-container">
+    <div class="power-picker-new-character-container__content">
+      <div>
+        <h3>Primary Green Powers</h3>
+        <power-picker-list
+          :powers="greenPrimaryPowers"
+          :selectedPowers.sync="selectedGreenPrimary"
+        >
+        </power-picker-list>
+      </div>
+      <div>
+        <h3>Primary Red Powers</h3>
+        <power-picker-list
+          :powers="redPrimaryPowers"
+          :selectedPowers.sync="selectedRedPrimary"
+        >
+        </power-picker-list>
+      </div>
+      <div>
+        <h3>Secondary Green Powers</h3>
+        <power-picker-list
+          :powers="greenSecondaryPowers"
+          :selectedPowers.sync="selectedGreenSecondary"
+        >
+        </power-picker-list>
+      </div>
+      <div>
+        <h3>Secondary Red Powers</h3>
+        <power-picker-list
+          :powers="redSecondaryPowers"
+          :selectedPowers.sync="selectedRedSecondary"
+        >
+        </power-picker-list>
+      </div>
+    </div>
+    <div class="power-picker-new-character-container__actions">
       <button
         class="btn"
         @click="addPowers"
-        :disabled="!readyToSend"
+        :disabled="!isReadyToSend"
       >
         Finalize Pick
       </button>
@@ -105,7 +115,7 @@ export default {
     };
   },
   computed: {
-    readyToSend() {
+    isReadyToSend() {
       return this.selectedGreenPrimary.length === 2
         && this.selectedRedPrimary.length === 2
         && this.selectedGreenSecondary.length === 2
@@ -116,4 +126,12 @@ export default {
 </script>
 
 <style>
+.power-picker-new-character-container__content {
+  margin-bottom: 10px;
+}
+
+.power-picker-new-character-container__actions {
+  display: flex;
+  justify-content: flex-end;
+}
 </style>
