@@ -10,6 +10,9 @@
         <v-card class="character-grid__bio">
           <character-bio></character-bio>
         </v-card>
+        <v-card class="character-grid__actions">
+          <character-actions></character-actions>
+        </v-card>
       </div>
     </div>
     <character-builder v-else></character-builder>
@@ -20,6 +23,7 @@
 import { mapGetters } from 'vuex';
 import VCard from '@/components/VCard';
 import CharacterBio from '@/components/CharacterBio';
+import CharacterActions from '@/components/CharacterActions';
 import CharacterBuilder from '@/components/CharacterBuilder';
 import CharacterPowers from '@/components/CharacterPowers';
 
@@ -27,6 +31,7 @@ export default {
   name: 'character-viewer',
   components: {
     CharacterBio,
+    CharacterActions,
     CharacterBuilder,
     CharacterPowers,
     VCard,
@@ -46,6 +51,10 @@ export default {
 <style>
   .character-grid {
     grid-template-columns: 1fr;
+  }
+
+  .character-grid__bio {
+    margin-bottom: var(--grid-gap);
   }
 
   @media (min-width: 768px) {

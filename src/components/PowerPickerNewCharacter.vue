@@ -84,6 +84,8 @@ export default {
       this.redSecondaryPowers = sampleSize(secondaryPowers.filter(p => filterColor(p, 'red')), 3);
     },
     addPowers() {
+      // Concat all powers together. We'll be going through them
+      // all to filter out the ones that are not selected.
       const powers = [
         ...this.greenPrimaryPowers,
         ...this.redPrimaryPowers,
@@ -91,6 +93,8 @@ export default {
         ...this.redSecondaryPowers,
       ];
 
+      // Concat all user selections to obtain a list of ids that correspond
+      // to powers
       const selectedPowers = [
         ...this.selectedGreenPrimary,
         ...this.selectedRedPrimary,
