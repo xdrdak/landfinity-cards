@@ -24,8 +24,8 @@ const actions = {
   setCharacter({ commit }, payload) {
     commit('setCharacter', payload);
   },
-  addPower({ commit }, payload) {
-    commit('addPower', payload);
+  addPowers({ commit }, payload) {
+    commit('addPowers', payload);
   },
 };
 
@@ -36,8 +36,8 @@ const mutations = {
     state.secondaryDomain = secondaryDomain;
     state.characterName = characterName;
   },
-  addPower(state, power) {
-    state.powers.push(power);
+  addPowers(state, powers) {
+    state.powers.push(...powers);
   },
 };
 

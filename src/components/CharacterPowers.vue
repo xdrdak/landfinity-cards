@@ -10,6 +10,7 @@
       <power-picker-new-character
         :primaryDomain="primaryDomain"
         :secondaryDomain="secondaryDomain"
+        @add-powers="addPowers"
       >
       </power-picker-new-character>
     </div>
@@ -39,6 +40,12 @@ export default {
       primaryDomain: 'getPrimaryDomain',
       secondaryDomain: 'getSecondaryDomain',
     }),
+  },
+  methods: {
+    addPowers(powers) {
+      // TODO: Needs some error validation before we ship this.
+      this.$store.dispatch('addPowers', powers);
+    },
   },
 };
 </script>

@@ -83,7 +83,7 @@ export default {
       ];
 
       const nextPowers = powers.filter(p => selectedPowers.indexOf(p.id) >= 0);
-      console.log('add these:', nextPowers);
+      this.$emit('add-powers', nextPowers);
     },
   },
   data() {

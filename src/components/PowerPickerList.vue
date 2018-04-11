@@ -1,7 +1,10 @@
 <template>
   <ul class="list power-picker-list">
     <li class="power-picker-list__item" v-for="power in powers" :key="power.id">
-      <label :for="power.id">
+      <label
+        :for="power.id"
+        :class="{'power-picker-list__item--disabled': isDisabled(power.id)}"
+      >
         <input
           class="power-picker-list__cb"
           type="checkbox"
@@ -9,11 +12,14 @@
           :value="power.id"
           v-model="selectedPowers"
           @change="$emit('update:selectedPowers', selectedPowers)"
-          :disabled="selectedPowers.length > 1 && selectedPowers.indexOf(power.id) < 0"
+          :disabled="isDisabled(power.id)"
         >
         {{power.power}} ({{power.type}})
       </label>
-      <p class="power-picker-list__description">
+      <p
+        class="power-picker-list__description"
+        :class="{'power-picker-list__description--disabled': isDisabled(power.id)}"
+      >
         {{power.description}}
       </p>
     </li>
@@ -32,6 +38,11 @@ export default {
     powers: {
       type: Array,
       required: true,
+    },
+  },
+  methods: {
+    isDisabled(id) {
+      return this.selectedPowers.length > 1 && this.selectedPowers.indexOf(id) < 0;
     },
   },
 };
@@ -57,5 +68,11 @@ export default {
 
 .power-picker-list__description {
   margin: 0;
+}
+
+.power-picker-list__item--disabled,
+.power-picker-list__description--disabled {
+  color: #CACACA;
+  cursor: not-allowed;
 }
 </style>
