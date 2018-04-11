@@ -128,6 +128,14 @@ header span {
   cursor: pointer;
 }
 
+.btn[disabled],
+.btn[disabled]:hover {
+  background: var(--white);
+  color: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  cursor: not-allowed;
+}
+
 .btn:hover {
   background: var(--dark-blue);
   color: var(--white);

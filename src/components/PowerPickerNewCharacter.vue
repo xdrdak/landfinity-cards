@@ -25,7 +25,13 @@
     >
     </power-picker-list>
     <div>
-      <button class="btn" @click="addPowers">Finalize Pick</button>
+      <button
+        class="btn"
+        @click="addPowers"
+        :disabled="!readyToSend"
+      >
+        Finalize Pick
+      </button>
     </div>
   </div>
 </template>
@@ -97,6 +103,14 @@ export default {
       selectedGreenSecondary: [],
       selectedRedSecondary: [],
     };
+  },
+  computed: {
+    readyToSend() {
+      return this.selectedGreenPrimary.length === 2
+        && this.selectedRedPrimary.length === 2
+        && this.selectedGreenSecondary.length === 2
+        && this.selectedRedSecondary.length === 2;
+    },
   },
 };
 </script>

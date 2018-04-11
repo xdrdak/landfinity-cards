@@ -43,7 +43,6 @@ export default {
   },
   methods: {
     addPowers(powers) {
-      // TODO: Needs some error validation before we ship this.
       this.$store.dispatch('addPowers', powers);
     },
   },
