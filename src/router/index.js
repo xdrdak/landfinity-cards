@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import CharacterViewer from '@/components/CharacterViewer';
 import DomainList from '@/components/DomainList';
 import DomainDetails from '@/components/DomainDetails';
+import PowerPickerDrawSet from '@/components/PowerPickerDrawSet';
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/domain/:name',
       name: 'DomainDetails',
       component: DomainDetails,
+    },
+    {
+      path: '/character/powers/draw/:color',
+      name: 'PowerPickerDrawSet',
+      component: PowerPickerDrawSet,
     },
   ],
 });
