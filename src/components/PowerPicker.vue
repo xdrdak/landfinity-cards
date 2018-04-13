@@ -10,13 +10,14 @@
     >
       <div v-for="power in samplePowers" :key="power.id" @click="selectPower(power)">
         <power-card
+          class="power-picker-card"
           :title="power.power"
           :type="power.type"
           :description="power.description"
           :flavour="power.flavour"
           :powerColor="power.powerColor"
-          class="power-picker-card"
           :class="{'power-picker-card--selected': isSelected(power)}"
+          :displayFlavour="false"
         />
       </div>
     </div>
@@ -95,10 +96,16 @@ export default {
 
 <style>
   .power-picker-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1;
     margin-bottom: 2rem;
   }
-  
+
+  @media (min-width: 768px) {
+    .power-picker-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
   .power-picker-card {
     position: relative;
     transition: all 100ms ease-in-out;
@@ -106,7 +113,6 @@ export default {
   }
 
   .power-picker-card:hover {
-    transform: scale(0.95, 0.95);
     cursor: pointer;
   }
 

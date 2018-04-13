@@ -31,7 +31,8 @@ export default {
   },
   methods: {
     addPowers(powers) {
-      console.log(powers);
+      this.$store.dispatch('addPowers', powers);
+      this.$router.push({ path: '/' });
     },
   },
 };
