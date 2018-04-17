@@ -42,7 +42,7 @@
           <!-- Submit -->
           <button
             class="btn"
-            @click="setCharacter({ primaryDomain, secondaryDomain, characterName })"
+            @click="setCharacter()"
           >
             Finalize Build
           </button>
@@ -77,6 +77,7 @@ export default {
       return this.domains.filter(domain => domain !== source);
     },
     setCharacter() {
+      console.log('YAS');
       this.$store.dispatch('setCharacter', {
         primaryDomain: this.primaryDomain,
         secondaryDomain: this.secondaryDomain,
@@ -87,8 +88,14 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
   .character-builder-form-group {
-    width: 30%;
+    width: 100%;
+  }
+
+  @media (min-width: 768px){
+    .character-builder-form-group {
+      width: 30%;
+    }
   }
 </style>

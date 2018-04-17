@@ -1,8 +1,11 @@
+
+const storageState = JSON.parse(localStorage.getItem('appstate'));
+
 // initial state
-const initialState = {
-  primaryDomain: 'Darkness',
-  secondaryDomain: 'Guardian',
-  characterName: 'Moe Chan',
+const initialState = storageState || {
+  primaryDomain: null,
+  secondaryDomain: null,
+  characterName: null,
   powers: [],
 };
 
@@ -22,6 +25,7 @@ const getters = {
 // actions
 const actions = {
   setCharacter({ commit }, payload) {
+    console.log(payload);
     commit('setCharacter', payload);
   },
   addPowers({ commit }, payload) {
