@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="character-actions">
     <router-link class="btn" to="/character/powers/draw/green">
       Draw green powers
     </router-link>
@@ -16,5 +16,8 @@ export default {
 </script>
 
 <style>
-
+.character-actions {
+  display: flex;
+  justify-content: space-around;
+}
 </style>

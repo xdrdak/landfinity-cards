@@ -1,12 +1,16 @@
 <template>
   <div>
     <div v-if="!powers.length" class="character-powers__none">
-      <h2>No Powers found!</h2>
-      <br/>
-      <p>
-        Since no powers have been found, you'll need to draw new powers.
-        Powers have been automatically drawn from each your domain. Simply pick 2 of the 3 in each section.
-      </p>
+      <div>
+        <h2>No Powers found!</h2>
+        <p>
+          Since no powers have been found, you'll need to draw new powers.
+          Powers have been automatically drawn from each your domain.
+        </p>
+        <p>
+          Simply pick 2 of the 3 in each section.
+        </p>
+      </div>
       <power-picker-new-character
         :primaryDomain="primaryDomain"
         :secondaryDomain="secondaryDomain"

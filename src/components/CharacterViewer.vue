@@ -10,7 +10,7 @@
         <v-card class="character-grid__bio">
           <character-bio></character-bio>
         </v-card>
-        <v-card class="character-grid__actions">
+        <v-card v-if="getPowers.length > 0" class="character-grid__actions">
           <character-actions></character-actions>
         </v-card>
       </div>
@@ -39,6 +39,7 @@ export default {
   computed: {
     ...mapGetters({
       isCharacterSet: 'isCharacterSet',
+      getPowers: 'getPowers',
     }),
   },
   data() {

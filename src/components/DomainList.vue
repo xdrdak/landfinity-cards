@@ -38,9 +38,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
   .domain-list {
-    column-count: 4;
+    column-count: 2;
     text-align: center;
   }
 
@@ -48,5 +48,11 @@ export default {
     padding: 20px 0;
     font-size: 1.2rem;
     font-weight: bold;
+  }
+
+  @media (min-width: 768px) {
+    .domain-list {
+      column-count: 4;
+    }
   }
 </style>

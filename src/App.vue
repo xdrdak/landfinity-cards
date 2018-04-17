@@ -63,6 +63,12 @@ a.nav__link {
   color: white;
 }
 
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -112,6 +118,13 @@ header span {
 .container {
   max-width: 1140px;
   margin: 0 auto;
+  padding: 0 10px;
+}
+
+@media (min-width: 1140px) {
+  .container {
+    padding: initial;
+  }
 }
 
 .grid {
