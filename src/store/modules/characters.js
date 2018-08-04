@@ -1,5 +1,5 @@
 
-const storageState = JSON.parse(localStorage.getItem('appstate'));
+const storageState = JSON.parse(localStorage.getItem('characterstate'));
 
 // initial state
 const initialState = storageState || {
@@ -25,7 +25,6 @@ const getters = {
 // actions
 const actions = {
   setCharacter({ commit }, payload) {
-    console.log(payload);
     commit('setCharacter', payload);
   },
   addPowers({ commit }, payload) {

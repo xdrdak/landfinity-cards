@@ -2,9 +2,13 @@
 
 > Landfinity cards and power tool
 
+## Live preview
+
+crazy-hat.surge.sh
+
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
